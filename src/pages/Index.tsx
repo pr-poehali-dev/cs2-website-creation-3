@@ -82,7 +82,7 @@ export default function Index() {
                 <span className="text-xl font-black text-background relative z-10">CS</span>
                 <div className="absolute inset-0 bg-primary/20 animate-pulse"></div>
               </div>
-              <span className="text-2xl font-black glow-cyan tracking-wider">CS2 PORTAL</span>
+              <span className="text-2xl font-black glow-cyan tracking-wider mx-0">Lubimov Esport</span>
             </div>
             
             <div className="hidden md:flex items-center gap-6">
