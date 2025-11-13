@@ -74,14 +74,15 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-primary/20">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b-2 border-primary/40 hologram">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded flex items-center justify-center">
-                <span className="text-2xl font-bold text-background">CS</span>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-primary via-accent to-secondary rounded-lg flex items-center justify-center border-2 border-primary/60 relative overflow-hidden">
+                <span className="text-xl font-black text-background relative z-10">CS</span>
+                <div className="absolute inset-0 bg-primary/20 animate-pulse"></div>
               </div>
-              <span className="text-2xl font-bold glow-cyan">CS2 Portal</span>
+              <span className="text-2xl font-black glow-cyan tracking-wider">CS2 PORTAL</span>
             </div>
             
             <div className="hidden md:flex items-center gap-6">
@@ -98,7 +99,7 @@ export default function Index() {
               ))}
             </div>
 
-            <Button className="bg-primary hover:bg-primary/90 text-background font-semibold border-glow-cyan">
+            <Button className="bg-primary hover:bg-primary/90 text-background font-bold border-2 border-primary/60 border-glow-cyan hologram">
               <Icon name="User" size={16} className="mr-2" />
               Войти
             </Button>
@@ -109,12 +110,12 @@ export default function Index() {
       <section id="главная" className="pt-32 pb-20 px-4">
         <div className="container mx-auto">
           <div className="text-center max-w-4xl mx-auto animate-fade-in">
-            <Badge className="mb-6 bg-accent/20 text-accent border-accent/50 text-lg px-4 py-2">
+            <Badge className="mb-6 bg-accent/20 text-accent border-2 border-accent/60 text-lg px-6 py-2 hologram">
               <Icon name="Zap" size={16} className="mr-2" />
               Counter-Strike 2
             </Badge>
             
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent leading-tight">
+            <h1 className="text-6xl md:text-8xl font-black mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight tracking-wider">
               TACTICAL SHOOTER
             </h1>
             
@@ -123,11 +124,11 @@ export default function Index() {
             </p>
             
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-background font-bold text-lg px-8 border-glow-cyan">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-background font-bold text-lg px-8 border-2 border-primary/70 border-glow-cyan hologram">
                 <Icon name="Play" size={20} className="mr-2" />
                 Смотреть обзор
               </Button>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 font-bold text-lg px-8">
+              <Button size="lg" variant="outline" className="border-2 border-primary/70 text-primary hover:bg-primary/20 font-bold text-lg px-8 hologram">
                 <Icon name="BookOpen" size={20} className="mr-2" />
                 Читать гайды
               </Button>
@@ -140,9 +141,9 @@ export default function Index() {
               { icon: 'Trophy', title: 'Киберспорт', desc: 'Турниры и результаты' },
               { icon: 'GraduationCap', title: 'Обучение', desc: 'Гайды от профи' }
             ].map((item, idx) => (
-              <Card key={idx} className="bg-card/50 border-primary/30 hover:border-primary/60 transition-all hover:scale-105 animate-fade-in" style={{ animationDelay: `${idx * 0.1}s` }}>
+              <Card key={idx} className="bg-card/50 border-2 border-primary/40 hover:border-primary/80 transition-all hover:scale-105 animate-fade-in hologram" style={{ animationDelay: `${idx * 0.1}s` }}>
                 <CardContent className="pt-6 text-center">
-                  <div className="w-16 h-16 bg-primary/10 rounded-lg mx-auto mb-4 flex items-center justify-center border border-primary/30">
+                  <div className="w-16 h-16 bg-primary/10 rounded-lg mx-auto mb-4 flex items-center justify-center border-2 border-primary/50 relative overflow-hidden">
                     <Icon name={item.icon as any} size={32} className="text-primary" />
                   </div>
                   <h3 className="text-xl font-bold mb-2">{item.title}</h3>
@@ -160,12 +161,12 @@ export default function Index() {
         <div className="container mx-auto">
           <div className="flex items-center gap-4 mb-12">
             <Icon name="Newspaper" size={32} className="text-secondary" />
-            <h2 className="text-4xl md:text-5xl font-bold text-neon-orange glow-orange">Последние новости</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-neon-purple glow-purple tracking-wider">НОВОСТИ</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {newsItems.map((news, idx) => (
-              <Card key={news.id} className="bg-card border-primary/20 hover:border-secondary/60 transition-all group cursor-pointer animate-slide-in" style={{ animationDelay: `${idx * 0.15}s` }}>
+              <Card key={news.id} className="bg-card border-2 border-primary/40 hover:border-secondary/80 transition-all group cursor-pointer animate-slide-in hologram" style={{ animationDelay: `${idx * 0.15}s` }}>
                 <div className="aspect-video bg-muted overflow-hidden">
                   <img src={news.image} alt={news.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                 </div>
@@ -184,7 +185,7 @@ export default function Index() {
           </div>
 
           <div className="text-center mt-10">
-            <Button variant="outline" size="lg" className="border-secondary text-secondary hover:bg-secondary/10">
+            <Button variant="outline" size="lg" className="border-2 border-secondary/70 text-secondary hover:bg-secondary/20 hologram">
               Все новости
               <Icon name="ArrowRight" size={16} className="ml-2" />
             </Button>
@@ -198,16 +199,16 @@ export default function Index() {
         <div className="container mx-auto">
           <div className="flex items-center gap-4 mb-12">
             <Icon name="BookOpen" size={32} className="text-primary" />
-            <h2 className="text-4xl md:text-5xl font-bold text-neon-cyan glow-cyan">Популярные гайды</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-neon-cyan glow-cyan tracking-wider">ГАЙДЫ</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {guides.map((guide, idx) => (
-              <Card key={guide.id} className="bg-card border-primary/20 hover:border-primary/60 transition-all group cursor-pointer animate-fade-in" style={{ animationDelay: `${idx * 0.1}s` }}>
+              <Card key={guide.id} className="bg-card border-2 border-primary/40 hover:border-primary/80 transition-all group cursor-pointer animate-fade-in hologram" style={{ animationDelay: `${idx * 0.1}s` }}>
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/30 group-hover:border-primary/60 transition-colors">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center border-2 border-primary/50 group-hover:border-primary/80 transition-colors">
                         <Icon name={guide.icon as any} size={24} className="text-primary" />
                       </div>
                       <div>
@@ -231,7 +232,7 @@ export default function Index() {
           </div>
 
           <div className="text-center mt-10">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-background font-bold border-glow-cyan">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-background font-bold border-2 border-primary/70 border-glow-cyan hologram">
               Все гайды
               <Icon name="ArrowRight" size={16} className="ml-2" />
             </Button>
@@ -246,7 +247,7 @@ export default function Index() {
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="flex items-center justify-center gap-4 mb-6">
               <Icon name="Users" size={32} className="text-accent" />
-              <h2 className="text-4xl md:text-5xl font-bold text-neon-purple">Присоединяйся к сообществу</h2>
+              <h2 className="text-4xl md:text-5xl font-black text-neon-green glow-green tracking-wider">СООБЩЕСТВО</h2>
             </div>
             <p className="text-xl text-muted-foreground mb-8">
               Более 50,000 активных игроков обсуждают стратегии, делятся опытом и играют вместе
@@ -259,7 +260,7 @@ export default function Index() {
               { icon: 'Users', title: 'Steam Group', members: '18K+', color: 'secondary' },
               { icon: 'Tv', title: 'Twitch', members: '12K+', color: 'accent' }
             ].map((community, idx) => (
-              <Card key={idx} className="bg-card border-primary/20 hover:border-accent/60 transition-all text-center group cursor-pointer animate-scale-in" style={{ animationDelay: `${idx * 0.1}s` }}>
+              <Card key={idx} className="bg-card border-2 border-primary/40 hover:border-accent/80 transition-all text-center group cursor-pointer animate-scale-in hologram" style={{ animationDelay: `${idx * 0.1}s` }}>
                 <CardContent className="pt-8 pb-8">
                   <div className={`w-20 h-20 bg-${community.color}/10 rounded-full mx-auto mb-4 flex items-center justify-center border-2 border-${community.color}/30 group-hover:border-${community.color} transition-colors`}>
                     <Icon name={community.icon as any} size={36} className={`text-${community.color}`} />
@@ -282,20 +283,20 @@ export default function Index() {
         <div className="container mx-auto max-w-2xl">
           <div className="text-center mb-12">
             <Icon name="Mail" size={32} className="text-primary mx-auto mb-4" />
-            <h2 className="text-4xl md:text-5xl font-bold text-neon-cyan glow-cyan mb-4">Связаться с нами</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-neon-cyan glow-cyan mb-4 tracking-wider">КОНТАКТЫ</h2>
             <p className="text-muted-foreground text-lg">
               Есть вопросы, предложения или хотите стать частью команды?
             </p>
           </div>
 
-          <Card className="bg-card border-primary/30">
+          <Card className="bg-card border-2 border-primary/50 hologram">
             <CardContent className="pt-8">
               <form className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium mb-2">Имя</label>
                   <input 
                     type="text" 
-                    className="w-full bg-background border border-primary/30 rounded px-4 py-3 focus:outline-none focus:border-primary transition-colors"
+                    className="w-full bg-background border-2 border-primary/40 rounded px-4 py-3 focus:outline-none focus:border-primary focus:border-glow-cyan transition-colors font-medium"
                     placeholder="Ваше имя"
                   />
                 </div>
@@ -304,7 +305,7 @@ export default function Index() {
                   <label className="block text-sm font-medium mb-2">Email</label>
                   <input 
                     type="email" 
-                    className="w-full bg-background border border-primary/30 rounded px-4 py-3 focus:outline-none focus:border-primary transition-colors"
+                    className="w-full bg-background border-2 border-primary/40 rounded px-4 py-3 focus:outline-none focus:border-primary focus:border-glow-cyan transition-colors font-medium"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -313,12 +314,12 @@ export default function Index() {
                   <label className="block text-sm font-medium mb-2">Сообщение</label>
                   <textarea 
                     rows={5}
-                    className="w-full bg-background border border-primary/30 rounded px-4 py-3 focus:outline-none focus:border-primary transition-colors resize-none"
+                    className="w-full bg-background border-2 border-primary/40 rounded px-4 py-3 focus:outline-none focus:border-primary focus:border-glow-cyan transition-colors resize-none font-medium"
                     placeholder="Ваше сообщение..."
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-background font-bold border-glow-cyan">
+                <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-background font-bold border-2 border-primary/70 border-glow-cyan hologram">
                   <Icon name="Send" size={20} className="mr-2" />
                   Отправить сообщение
                 </Button>

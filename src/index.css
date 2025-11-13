@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,39 +6,39 @@
 
 @layer base {
   :root {
-    --background: 222 47% 5%;
-    --foreground: 180 100% 90%;
+    --background: 220 40% 2%;
+    --foreground: 210 100% 95%;
 
-    --card: 222 40% 8%;
-    --card-foreground: 180 100% 90%;
+    --card: 220 35% 6%;
+    --card-foreground: 210 100% 95%;
 
-    --popover: 222 40% 8%;
-    --popover-foreground: 180 100% 90%;
+    --popover: 220 35% 6%;
+    --popover-foreground: 210 100% 95%;
 
-    --primary: 188 100% 50%;
-    --primary-foreground: 222 47% 5%;
+    --primary: 195 100% 55%;
+    --primary-foreground: 220 40% 2%;
 
-    --secondary: 16 100% 60%;
-    --secondary-foreground: 222 47% 5%;
+    --secondary: 280 85% 65%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 222 30% 15%;
-    --muted-foreground: 180 20% 60%;
+    --muted: 220 25% 12%;
+    --muted-foreground: 210 15% 55%;
 
-    --accent: 271 76% 53%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 160 90% 50%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 222 30% 18%;
-    --input: 222 30% 18%;
-    --ring: 188 100% 50%;
+    --border: 220 30% 15%;
+    --input: 220 30% 15%;
+    --ring: 195 100% 55%;
 
-    --radius: 0.25rem;
+    --radius: 0.5rem;
 
-    --neon-cyan: 188 100% 50%;
-    --neon-orange: 16 100% 60%;
-    --neon-purple: 271 76% 53%;
+    --neon-cyan: 195 100% 55%;
+    --neon-purple: 280 85% 65%;
+    --neon-green: 160 90% 50%;
   }
 }
 
@@ -49,7 +49,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Inter", sans-serif;
+    font-family: "Exo 2", sans-serif;
     position: relative;
     overflow-x: hidden;
   }
@@ -77,13 +77,36 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(
-      circle at 50% 50%,
-      transparent 0%,
-      hsl(222 47% 5% / 0.8) 100%
-    );
+    background:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        hsl(195 100% 55% / 0.03) 2px,
+        hsl(195 100% 55% / 0.03) 4px
+      ),
+      radial-gradient(
+        circle at 50% 50%,
+        hsl(195 100% 55% / 0.05) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 50% 50%,
+        transparent 0%,
+        hsl(220 40% 2% / 0.9) 100%
+      );
     z-index: -1;
     pointer-events: none;
+    animation: scanlines 8s linear infinite;
+  }
+
+  @keyframes scanlines {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(4px);
+    }
   }
 
   h1,
@@ -92,8 +115,10 @@
   h4,
   h5,
   h6 {
-    font-family: "Rajdhani", sans-serif;
+    font-family: "Orbitron", sans-serif;
     font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
 
   @keyframes subtleZoom {
@@ -114,12 +139,12 @@
     color: hsl(var(--neon-cyan));
   }
 
-  .text-neon-orange {
-    color: hsl(var(--neon-orange));
-  }
-
   .text-neon-purple {
     color: hsl(var(--neon-purple));
+  }
+
+  .text-neon-green {
+    color: hsl(var(--neon-green));
   }
 
   .glow-cyan {
@@ -129,11 +154,19 @@
       0 0 30px hsl(var(--neon-cyan));
   }
 
-  .glow-orange {
+  .glow-purple {
     text-shadow:
-      0 0 10px hsl(var(--neon-orange)),
-      0 0 20px hsl(var(--neon-orange)),
-      0 0 30px hsl(var(--neon-orange));
+      0 0 10px hsl(var(--neon-purple)),
+      0 0 20px hsl(var(--neon-purple)),
+      0 0 30px hsl(var(--neon-purple)),
+      0 0 40px hsl(var(--neon-purple));
+  }
+
+  .glow-green {
+    text-shadow:
+      0 0 10px hsl(var(--neon-green)),
+      0 0 20px hsl(var(--neon-green)),
+      0 0 30px hsl(var(--neon-green));
   }
 
   .border-glow-cyan {
@@ -142,9 +175,45 @@
       inset 0 0 10px hsl(var(--neon-cyan) / 0.2);
   }
 
-  .border-glow-orange {
+  .border-glow-purple {
     box-shadow:
-      0 0 10px hsl(var(--neon-orange)),
-      inset 0 0 10px hsl(var(--neon-orange) / 0.2);
+      0 0 10px hsl(var(--neon-purple)),
+      inset 0 0 10px hsl(var(--neon-purple) / 0.2);
+  }
+
+  .border-glow-green {
+    box-shadow:
+      0 0 10px hsl(var(--neon-green)),
+      inset 0 0 10px hsl(var(--neon-green) / 0.2);
+  }
+
+  .hologram {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hologram::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      hsl(var(--neon-cyan) / 0.1) 50%,
+      transparent 70%
+    );
+    animation: hologramSweep 3s ease-in-out infinite;
+  }
+
+  @keyframes hologramSweep {
+    0% {
+      transform: translate(-100%, -100%);
+    }
+    100% {
+      transform: translate(100%, 100%);
+    }
   }
 }
