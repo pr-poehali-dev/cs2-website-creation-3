@@ -50,6 +50,40 @@
   body {
     @apply bg-background text-foreground;
     font-family: "Inter", sans-serif;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://cdn.poehali.dev/projects/d2665cb7-a2d8-453d-a8dd-4d2de8f2c861/files/41a208bb-ed96-46bb-96b3-3060279b47b8.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.15;
+    z-index: -1;
+    animation: subtleZoom 30s ease-in-out infinite alternate;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at 50% 50%,
+      transparent 0%,
+      hsl(222 47% 5% / 0.8) 100%
+    );
+    z-index: -1;
+    pointer-events: none;
   }
 
   h1,
@@ -60,6 +94,18 @@
   h6 {
     font-family: "Rajdhani", sans-serif;
     font-weight: 700;
+  }
+
+  @keyframes subtleZoom {
+    0% {
+      transform: scale(1) translate(0, 0);
+    }
+    50% {
+      transform: scale(1.05) translate(-2%, 2%);
+    }
+    100% {
+      transform: scale(1) translate(0, 0);
+    }
   }
 }
 
